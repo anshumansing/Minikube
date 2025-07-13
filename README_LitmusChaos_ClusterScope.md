@@ -23,8 +23,7 @@ Reference Documentation:
 
 # 3. Install the application  
 
-    cd python_app
-    kubectl apply -f .
+    kubectl apply -f petclinic.yaml
 
 # 4. Add the Minikube Environment in Litmus GUI  
 
@@ -42,14 +41,20 @@ Give a name and save it
 
     git clone https://github.com/litmuschaos/litmus.git
     cd litmus/monitoring
-    kubectl -n litmus apply -f utils/metrics-exporters/litmus-metrics/chaos-exporter/
     kubectl create ns monitoring
     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
     helm repo update
-    helm upgrade --install grafana prometheus-community/kube-prometheus-stack --namespace monitoring
+    helm upgrade --install prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring
+    kubectl apply -f podmonitor.yaml
 
-# 8. Verify the details on Grafana
+
+# 8. Validate the metrics on Grafana
+To Search all of the time series data points grouping by job  in query  
+
+    count({__name__=~".+"}) by (job)
+
+# 9. Verify the details on Grafana
 
     Add the dashboard id
-    1860
+    13358
 
