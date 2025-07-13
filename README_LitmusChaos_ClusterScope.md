@@ -55,6 +55,6 @@ To Search all of the time series data points grouping by job  in query
 
 # 9. Verify the details on Grafana
 
-    Add the dashboard id
-    13358
+    Add the dashboard json of sockshop.json from this repo.
+    Also you can add this dashboard id 13358
 
