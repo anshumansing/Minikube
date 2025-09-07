@@ -8,7 +8,7 @@ metadata:
     app: single-app-single-collector
   namespace: metrics
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: single-app-single-collector
@@ -36,4 +36,5 @@ spec:
             memory: "256Mi"
 
             cpu: "250m"
+
 
